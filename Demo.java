@@ -1,17 +1,22 @@
-class Date{
-	int year;
-	int month;
-	int day;
+class Box{
+	int length;
+	int width;
+	int height;
 }
 
 class Demo {
 	public static void main(String[] args) {
-		Date d1=new Date();
-		d1.year=1999;
-		d1.month=12;
-		d1.day=31; //day of month
-		System.out.println("Year : "+d1.year);
-		System.out.println("Month: "+d1.month);
-		System.out.println("Day : "+d1.day);
+		Box b1=new Box();
+		b1.length=12;
+		b1.width=5;
+		b1.height=3;
+		System.out.println("Length : "+b1.length);
+		System.out.println("Width  : "+b1.width);
+		System.out.println("Height : "+b1.height);
+		
+		int volume;
+		volume=b1.length*b1.width*b1.height;
+		System.out.println("Volume of the box : "+volume); //180
     }
 }
+
