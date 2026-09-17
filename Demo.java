@@ -2,6 +2,12 @@ class Box{
 	int length;
 	int width;
 	int height;
+	
+	public void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume of the box : "+volume); //180
+	}
 }
 
 class Demo {
@@ -14,8 +20,6 @@ class Demo {
 		System.out.println("Width  : "+b1.width);
 		System.out.println("Height : "+b1.height);
 		
-		int volume;
-		volume=b1.length*b1.width*b1.height;
-		System.out.println("Volume of the box : "+volume); //180
+		b1.printVolume();
     }
 }
