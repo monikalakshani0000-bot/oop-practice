@@ -1,66 +1,62 @@
+class Box{
+	private int length;
+	private int width;
+	private int height;
 
-class Date{
-	public static final int YEAR=0;
-	public static final int MONTH=1;
-	public static final int DAY=2;
+	public void printVolume(){
+		System.out.println("Volume of the box : "+this);
+	}
+	public int getVolume(){
+		return length*width*height;
+	}
+	public void set(int length, int width, int height){
+		setLength(length); 	//this.length=length;
+		setWidth(width);	//this.width=width;
+		setHeight(height);	//this.height=height;
+	}
+	public void setLength(int length){
+		this.length=length;
+	}
+	public int getLength(){
+		return length;
+	}
+	public void setWidth(int width){
+		this.width=width;
+	}
+	public int getWidth(){
+		return width;
+	}
+	public void setHeight(int height){
+		this.height=height;
+	}
+	public int getHeight(){
+		return height;
+	}
+	Box(){
 	
-	private int year;
-	private int month;
-	private int day; 
-	
-	Date(){
-		/*year=1970;
-		month=1;
-		day=1;*/
-		this(1970,1,1);
-	}
-	public Date(int year, int month, int day){
-		/*this.year=year;
-		this.month=month;
-		this.day=day;*/
-		set(year,month,day);
-	}	
-	public void printDate(){
-		System.out.println(toString());
-	}
-	public void set(int field, int value){
-		switch(field){
-			case YEAR:
-				setYear(value);
-				break;
-			case MONTH:
-				setMonth(value);
-				break;
-			case DAY:
-				setDay(value);
-		}
-	}
-	public void set(int year, int month, int day){
-		setYear(year);//this.year=year;
-		setMonth(month);//this.month=month;
-		setDay(day);//this.day=day;
-	}
-	public void setYear(int year){
-		this.year=year;
-	}
-	public void setMonth(int month){
-		this.month=month;
-	}
-	public void setDay(int day){
-		this.day=day;
-	}
-	public String toString(){
-		return year+"-"+month+"-"+day;
 	}
 }
 class Demo {
 	public static void main(String[] args) {
-		Date d1=new Date();
-		System.out.println(d1);//1970-1-1
+		Box b1=new Box();
+		b1.set(12,5,3);
+		b1.printVolume(); //180
+		System.out.println();
 		
-		d1.set(Date.YEAR,2026); //set(field, value)
-		d1.set(Date.MONTH,9);
-		d1.set(Date.DAY,17);
-		System.out.println(d1);//2026-9-17
-	}
+		Box b2=new Box(10);
+		b2.printVolume(); //1000
+		System.out.println();
+		
+		Box b3=new Box(120,50,30);
+		b3.printVolume(); //180000
+		System.out.println();
+		
+		Box b4=Box.getInstance();
+		b4.printVolume(); //1
+		System.out.println();
+		
+		b4.set(b3);
+		b4.printVolume(); //180000
+		System.out.println();
+    }
 }
