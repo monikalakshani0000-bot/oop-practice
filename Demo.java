@@ -1,55 +1,28 @@
-import java.time.*;
-class Date{
-	private int year;
-	private int month;
-	private int day; 
+class Box{
+	private int length;
+	private int width;
+	private int height;
 	
-	Date(){
-		this(1970,1,1);
-	}
-	public Date(int year, int month, int day){
-		set(year,month,day);
-	}	
-	public void printDate(){
-		System.out.println(toString());
-	}
+	public Box(){
 
-	public void set(int year, int month, int day){
-		setYear(year);//this.year=year;
-		setMonth(month);//this.month=month;
-		setDay(day);//this.day=day;
 	}
-	public void setYear(int year){
-		this.year=year;
-	}
-	public void setMonth(int month){
-		this.month=month;
-	}
-	public void setDay(int day){
-		this.day=day;
-	}
-	public String toString(){
-		return year+"-"+month+"-"+day;
-	}
-
-	public void set(Date date){
-		set(date.year, date.month, date.day);
-	}
-	public static Date getDateInstance(){
-		LocalDate d1=LocalDate.now();
-		return new Date(d1.getYear(),d1.getMonthValue(),d1.getDayOfMonth());
+	public Box(int length, int width, int height){
+		this.length=length;
+		this.width=width;
+		this.height=height;
 	}
 }
 class Demo {
 	public static void main(String[] args) {
-		Date d1=Date.getDateInstance();
-		System.out.println(d1); //2026-9-17
+		Box[] br=new Box[3]; //Reference array, Box type
+		System.out.println(br[0]+" "+br[1]+" "+br[2]); //null null null
+		br[0]=new Box(12,5,3);
+		br[1]=new Box(120,50,30);
+		br[2]=new Box(1,2,3);
 		
-		d1.setYear(1999);
-		System.out.println(d1); //2026-9-17-->1999-9-17
+		for (int i=0 ; i<br.length ; i++){
+			System.out.println(br[i]);
+		}
 		
-		Date d2=d1.setYear(1999);
-		System.out.println(d2); //1999-9-17
 	}
 }
-
