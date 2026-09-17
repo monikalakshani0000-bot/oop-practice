@@ -1,66 +1,66 @@
+
 class Date{
-	int year;
-	int month;
-	int day;
+	public static final int YEAR=0;
+	public static final int MONTH=1;
+	public static final int DAY=2;
+	
+	private int year;
+	private int month;
+	private int day; 
 	
 	Date(){
-		year=1970;
+		/*year=1970;
 		month=1;
-		day=1;
-	}		
-	
+		day=1;*/
+		this(1970,1,1);
+	}
+	public Date(int year, int month, int day){
+		/*this.year=year;
+		this.month=month;
+		this.day=day;*/
+		set(year,month,day);
+	}	
 	public void printDate(){
-		System.out.println(year+"-"+month+"-"+day);
+		System.out.println(toString());
 	}
-	
-	public void set(int y, int m, int d ){
-		this.year = y;
-		this.month = m;
-		this.day = d;		
+	public void set(int field, int value){
+		switch(field){
+			case YEAR:
+				setYear(value);
+				break;
+			case MONTH:
+				setMonth(value);
+				break;
+			case DAY:
+				setDay(value);
+		}
 	}
-	
-	public Date(int y, int m, int d ){
-		this.year = y;
-		this.month = m;
-		this.day = d;		
+	public void set(int year, int month, int day){
+		setYear(year);//this.year=year;
+		setMonth(month);//this.month=month;
+		setDay(day);//this.day=day;
 	}
-	
-	public void setYear(int y){
-		this.year = y;		
+	public void setYear(int year){
+		this.year=year;
 	}
-	
-	public void setMonth(int m){
-		this.month = m;		
+	public void setMonth(int month){
+		this.month=month;
 	}
-	
-	public void setDay(int d){
-		this.day = d;		
+	public void setDay(int day){
+		this.day=day;
 	}
-	
 	public String toString(){
 		return year+"-"+month+"-"+day;
 	}
-
-	 
 }
 class Demo {
 	public static void main(String[] args) {
 		Date d1=new Date();
-		d1.printDate(); //1970-1-1 (Default date);
+		System.out.println(d1);//1970-1-1
 		
-		d1.set(1999,12,31);	
-		d1.printDate(); //1999-12-31
-		
-		Date d2=new Date(2020,3,14);
-		d2.printDate(); //2020-3-14
-		
-		Date d3=new Date();
-		d3.setYear(2026);
-		d3.setMonth(9);
-		d3.setDay(17);
-		System.out.println(d3.toString());//2026-9-17
+		d1.set(Date.YEAR,2026); //set(field, value)
+		d1.set(Date.MONTH,9);
+		d1.set(Date.DAY,17);
+		System.out.println(d1);//2026-9-17
 	}
 }
-
-
-
