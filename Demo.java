@@ -1,41 +1,26 @@
 class Box{
-	int length;
-	int width;
-	int height;
-	
-	public Box(int length, int width, int height){
-		this.length=length;
-		this.width=width;
-		this.height=height;
-		System.out.println("Box(int,int,int)");
+	int length=12;
+	int width=5;
+	int height=3;
+	Box(){
+		
 	}
-	public Box(int length){
-		this.length=length;
-		this.width=length;
-		this.height=length;
-		System.out.println("Box(int)");
-	}
-
-
-	public Box(){
-		this.length=1;
-		this.width=1;
-		this.height=1;
-		System.out.println("Box()");
-	}
-	public void printVolume(){
-		System.out.println("Volume of the box : "+(length*width*height));
+	Box(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
 	}
 }
 class Demo {
 	public static void main(String[] args) {
-		Box b1=new Box(); //calling default constructor
-		b1.printVolume();
+		Box b1=new Box();
+		System.out.println("Length of b1 : "+b1.length);	//
+		System.out.println("Width  of b1 : "+b1.width);	//
+		System.out.println("Height of b1 : "+b1.height);	//
 		
-		Box b2=new Box(10);
-		b2.printVolume();
-		
-		Box b3=new Box(12,5,3);
-		b3.printVolume();
-    }
+		Box b2=new Box(120,50,30);
+		System.out.println("Length of b2 : "+b2.length);	//
+		System.out.println("Width  of b2 : "+b2.width);	//
+		System.out.println("Height of b2 : "+b2.height);	//
+	}
 }
