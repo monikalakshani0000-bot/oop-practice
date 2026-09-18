@@ -1,26 +1,24 @@
-class Box{
-	int length=12;
-	int width=5;
-	int height=3;
-	Box(){
-		
-	}
-	Box(int l, int w, int h){
-		length=l;
-		width=w;
-		height=h;
-	}
+class A{
+	int a;
+	int b;
 }
 class Demo {
 	public static void main(String[] args) {
-		Box b1=new Box();
-		System.out.println("Length of b1 : "+b1.length);	//
-		System.out.println("Width  of b1 : "+b1.width);	//
-		System.out.println("Height of b1 : "+b1.height);	//
+		A a1=new A();
+		a1.a=1;
+		a1.b=2;
 		
-		Box b2=new Box(120,50,30);
-		System.out.println("Length of b2 : "+b2.length);	//
-		System.out.println("Width  of b2 : "+b2.width);	//
-		System.out.println("Height of b2 : "+b2.height);	//
+		A a2=new A();
+		a2.a=10;
+		a2.b=20;
+		
+		A a3=new A();
+		a3.a=100;
+		a3.b=200;
+		
+		System.out.println("a1 : "+a1.a+" "+a1.b); //1 2
+		System.out.println("a2 : "+a2.a+" "+a2.b); //10 20
+		System.out.println("a3 : "+a3.a+" "+a3.b); //100 200
+		
 	}
 }
