@@ -1,60 +1,68 @@
-class Box{
-	private int length;
-	private int width;
-	private int height;
+class Student{
+	private String id;
+	private String name;
+	private int prf;
+	private int dbms;
 	
-	//------------methods declarations----------------
-	public void printVolume(){
-		System.out.println("Volume of the box : "+getVolume());
-	}
-	public int getVolume(){
-		return length*width*height;
-	}
-	public void setSize(int length, int width, int height){
-		setLength(length);
-		setWidth(width);
-		setHeight(height);
+	public void printStudentDetails(){
+		System.out.println(id+"\t"+name+"\t"+prf+"\t"+dbms);
 	}
 	
-	public void setLength(int length){
-		this.length = length;
+	public void setStudentDetails(String id, String name){
+		this.id = id;
+		this.name = name;
 	}
 	
-	public int getLength(){
-		return length;
+	public void setMarks(int prf, int dbms){
+		this.prf = prf;
+		this.dbms = dbms;
+	}
+		
+	public void setPrfMarks(int prfM){
+		this.prf = prfM;
 	}
 	
-	public void setWidth(int width){
-		this.width = width;
+	public void setDbmsMarks(int dbmsM){
+		this.dbms = dbmsM;
 	}
 	
-	public int getWidth(){
-		return width;
+	public String getId(){
+		return id;
 	}
 	
-	public void setHeight(int height){
-		this.height = height;
+	public String getName(){
+		return name;
 	}
 	
-	public int getHeight(){
-		return height;
+	public int getPrfMarks(){
+		return prf;
 	}
 	
+	public int getDbmsMarks(){
+		return dbms;
+	}
+
+	
+	public int getTotal(){
+		return prf+dbms;
+	}
 }
+
 class Demo {
 	public static void main(String[] args) {
-		Box b1=new Box();
-		b1.setSize(12,5,3);
-		b1.printVolume(); //180
-		System.out.println();
+		Student s1=new Student();
+		s1.setStudentDetails("S0001","Nimal");
+		s1.setMarks(56,70);
+		s1.printStudentDetails(); //S0001	Nimal	56 	70
 		
-		b1.setLength(120);
-		b1.setWidth(50);
-		b1.setHeight(30);
+		s1.setPrfMarks(89);
+		s1.setDbmsMarks(90);
+		s1.printStudentDetails(); //S0001	Nimal	89	90
 		
-		b1.printVolume(); //180000
-		System.out.println("New Length : "+b1.getLength());
-		System.out.println("New Width  : "+b1.getWidth());
-		System.out.println("New Height : "+b1.getHeight());
+		System.out.println("Student Id   : "+s1.getId());	//S0001
+		System.out.println("Student Name : "+s1.getName());	//Nimal
+		System.out.println("PRF Marks    : "+s1.getPrfMarks());//89
+		System.out.println("DBMS Marks   : "+s1.getDbmsMarks());//90
+		System.out.println("Total Marks  : "+s1.getTotal());//179
     }
 }
